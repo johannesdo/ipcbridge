@@ -193,7 +193,7 @@ int main()
                {
                   /* data read */
                   buf[nbytes] = '\0';
-                  fprintf(stdout, "%s", buf);
+                  fprintf(stdout, "%s\n", buf);
                   fflush(stdout);
                }
             }
