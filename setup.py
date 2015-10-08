@@ -17,7 +17,7 @@ setup(  name = 'IpcBridge',
         description = 'python IPC bridge module',
         author = 'Johannes Doerk',
         author_email = 'johannes.doerk@gmx.de',
-        url = 'http://github.com/TODO',
+        url = 'https://github.com/johannesdo/ipcbridge',
         long_description = '''
 python IPC bridge module.
 ''',
