@@ -10,7 +10,7 @@
 #include <pthread.h>
 
 
-#define SOCKET_PATH "/tmp/igs-host-control"
+#define SOCKET_PATH "/tmp/ipcbridge.unix"
 
 #define BUFLEN 1024
 
