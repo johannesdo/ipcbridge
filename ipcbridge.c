@@ -19,9 +19,6 @@ FILE *sink;
 static int sock;
 static char buf[BUFLEN];
 
-//pthread_t t;
-//pthread_attr_t attr;
-//int do_loop;
 
 static PyObject *
 ipcbridge_send(PyObject *self, PyObject *args)
@@ -37,8 +34,6 @@ ipcbridge_send(PyObject *self, PyObject *args)
    ret = send(sock, msg, strnlen(msg, BUFLEN), 0);
 
    Py_RETURN_NONE;
-   //convert C type to python type
-   //return PyLong_FromLong(ret);
 }
 
 /* TODO read latest and discard the rest - only newest value interesting */
@@ -108,7 +103,7 @@ static int init_handler(void)
    strncpy(s.sun_path, SOCKET_PATH, strlen(SOCKET_PATH));
   
 
-   /* module import hangs until successful connect - easy approach */
+   /* module import blocks until successful connect - easy approach */
    err = 1;
    while(err)
    {
@@ -134,10 +129,9 @@ static int init_handler(void)
       }
    }
 
-
-   sink = fopen("/tmp/ipcbridge.debug", "w");
-   fprintf(sink, "LOADMODULE sock %d", sock);
-   fflush(sink);
+   //sink = fopen("/tmp/ipcbridge.debug", "w");
+   //fprintf(sink, "LOADMODULE sock %d", sock);
+   //fflush(sink);
 
    return 0;
 }
@@ -148,8 +142,8 @@ static void exit_handler(void)
 
    close(sock);
 
-   fprintf(sink, "EXITMODULE");
-   fclose(sink);
+   //fprintf(sink, "EXITMODULE");
+   //fclose(sink);
 
    return;
 }
