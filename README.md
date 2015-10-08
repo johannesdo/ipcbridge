@@ -16,7 +16,7 @@ sudo python setup.py install
 ```
 cd ipcbridge
 
-rm dist/ MANIFEST -rf
+rm dist/ -rf
 python setup.py sdist
 pip install ipcbridge --no-cache-dir --no-index -f ./dist --upgrade
 ```
